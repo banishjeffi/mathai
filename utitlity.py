@@ -1,20 +1,8 @@
-import os
-import json
-
 import google.generativeai as genai
-
-working_directory = os.path.dirname(os.path.abspath(__file__))
-
-config_path = "https://github.com/banishjeffi/mathai/blob/main/config.json"
-config_data = json.load(open(config_path))
-
-print(config_path,"==>", config_data)
-
-key = config_data["GOOGLE_API_KEY"]
 
 print("Google API key ==>",key)
 
-genai.configure(api_key = key)
+genai.configure(api_key = "AIzaSyC6zEe1IMBGSvq5QfOrci-1KLO2Ztkc1Bk")
 
 def load_model():
     model = genai.GenerativeModel('gemini-pro')
