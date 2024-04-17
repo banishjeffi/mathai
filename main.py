@@ -1,6 +1,12 @@
 import streamlit as st
 import os
-from utitlity import (load_model)
+import google.generativeai as genai
+
+genai.configure(api_key = "AIzaSyC6zEe1IMBGSvq5QfOrci-1KLO2Ztkc1Bk")
+
+def load_model():
+    model = genai.GenerativeModel('gemini-pro')
+    return model
 
 working_directory = os.path.dirname(os.path.abspath(__file__))
 
