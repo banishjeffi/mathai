@@ -14,7 +14,7 @@ print(working_directory)
 
 # setting up the page configuration
 st.set_page_config(
-    page_title = "Gemni Ai",
+    page_title = "Math Ai - banishjeffi",
     page_icon = "🤖",
     layout = "centered"
 )
