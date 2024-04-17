@@ -5,7 +5,7 @@ import google.generativeai as genai
 
 working_directory = os.path.dirname(os.path.abspath(__file__))
 
-config_path = f"{working_directory}\config.json"
+config_path = "https://github.com/banishjeffi/mathai/blob/main/config.json"
 config_data = json.load(open(config_path))
 
 print(config_path,"==>", config_data)
