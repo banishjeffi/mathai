@@ -24,7 +24,7 @@ print(working_directory)
 
 # setting up the page configuration
 st.set_page_config(
-    page_title = "Gemni Ai",
+    page_title = "Math Ai",
     page_icon = "🤖",
     layout = "centered"
 )
@@ -54,7 +54,7 @@ def translate_role_for_streamlit(user_role):
 
 if selected == "Type Q/A":
     
-    st.header('🖺 Type Q/A', divider='rainbow')
+    st.header('🧾 Type Q/A', divider='rainbow')
     
     model = load_model()
 
