@@ -1,2 +1,4 @@
 google-generativeai
+pillow
+streamlit-option-menu
 streamlit
