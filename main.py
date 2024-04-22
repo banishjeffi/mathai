@@ -60,9 +60,9 @@ with tab1:
         
         question = ocr(image)
 
-        if question in "sorry":
+        if "sorry" in question:
             st.danger(question)
-        elif question in "image":
+        if "image" in question:
             st.danger("Sorrry I couldn't able to process image please try another image")
         else:
             st.text("Question")
