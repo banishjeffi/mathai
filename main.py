@@ -12,7 +12,7 @@ def load_model():
 
 def ocr(image):
     gemini_pro_vision_model = genai.GenerativeModel('gemini-pro-vision')
-    prompt = "Extract the questions from the image, this image might contain mathematical symbols so convert it to searchable text"
+    prompt = "Extract the questions from the image, this image might contain mathematical symbols so convert it to searchable text if it is not related to maths please ignore"
     response = gemini_pro_vision_model.generate_content([prompt, image])
     result = response.text
     return result
