@@ -59,7 +59,6 @@ with tab1:
         st.image(image)
         
         question = ocr(image)
-        st.info(question)
 
         if question in "sorry":
             st.danger(question)
