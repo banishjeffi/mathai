@@ -61,14 +61,14 @@ with tab1:
         question = ocr(image)
         st.info(question)
 
-        if question != "I'm sorry, I can't process this image. It doesn't contain any questions.":
+        if question in "I'm sorry":
+            st.danger(question)   
+        else:
             st.text("Question")
             st.info(question)  
             ans = chat.send_message(question)
             st.text('Solution:')
             st.markdown(ans.text)
-        else:
-            st.danger(question)   
             
 with tab2:
     
