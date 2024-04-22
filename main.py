@@ -29,7 +29,7 @@ st.set_page_config(
 )
     
 
-tab1, tab2, tab3 = st.tabs(["Type Q/A", "Scan Q/A"])
+tab1, tab2 = st.tabs(["Type Q/A", "Scan Q/A"])
     
     
 def translate_role_for_streamlit(user_role):
