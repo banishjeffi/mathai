@@ -61,7 +61,7 @@ with tab1:
         question = ocr(image)
         st.info(question)
 
-        if question in "I'm sorry":
+        if question in "sorry":
             st.danger(question)   
         else:
             st.text("Question")
