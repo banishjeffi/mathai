@@ -61,7 +61,7 @@ with tab1:
         question = ocr(image)
         st.info(question)
 
-        if question != "sorry i cant process this image please provide me a math related images":
+        if question != "I'm sorry, I can't process this image. It doesn't contain any questions.":
             st.text("Question")
             st.info(question)  
             ans = chat.send_message(question)
