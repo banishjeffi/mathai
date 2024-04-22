@@ -28,8 +28,9 @@ st.set_page_config(
     layout = "centered"
 )
     
+st.header("🤖 Math AI", divider='rainbow')
 
-tab1, tab2 = st.tabs(["Type Q/A", "Scan Q/A"])
+tab1, tab2 = st.tabs(["📇 Scan Q/A", "🖺 Type Q/A"])
     
     
 def translate_role_for_streamlit(user_role):
@@ -39,10 +40,37 @@ def translate_role_for_streamlit(user_role):
     
     else:
         return user_role
+    
 
 with tab1:
     
-    st.header('🖺 Type Q/A', divider='rainbow')
+    st.subheader("📇 Scan Q/A")
+    
+    uploaded_image = st.file_uploader(" Upload an Image................", type = ["jpg","png","jpeg"])
+    
+    if st.button("Scan and Extract Image"):
+        image = Image.open(uploaded_image)
+        
+        model = load_model()
+        chat = model.start_chat(history = [])
+        chat.send_message("Your name is Math AI, you are a part of Eduport developed by Banish Jeffi. You can solve math-related problems. - Handling Math Inquiries: - If the customer's query is math-related, provide a clear and concise answer to their questions. - If the inquiry is complex, break down the steps in a logical manner to aid understanding. - Include relevant formulas or explanations to support the solution. - Non-Math Requests: - If the customer's request is not related to math, respond with a friendly message: 'Sorry, as I am a mathematical branch of Eduport, I can only provide mathematical solutions. - Handling Inappropriate or Offensive Content: - If the customer provides inappropriate or offensive content, respond with a neutral message: 'I'm here to help you with math questions. If you have any math-related inquiries, feel free to ask! - Language and Tone: - Use language that is easy to understand, especially when explaining complex mathematical concepts.")
+        
+        
+        st.image(image)
+        
+        question = ocr(image)
+        
+        st.text('Question')
+        st.info(question)
+        ans = chat.send_message(question)
+        
+        st.text('Solution:')
+        st.markdown(ans.text)
+            
+            
+with tab2:
+    
+    st.subheader('🖺 Type Q/A')
     
     model = load_model()
 
@@ -66,29 +94,3 @@ with tab1:
             
         with st.chat_message('assistant'):
             st.markdown(gemini_response.text)
-            
-with tab2:
-    
-    st.title("📇 Scan Q/A")
-    
-    uploaded_image = st.file_uploader(" Upload an Image................", type = ["jpg","png","jpeg"])
-    
-    if st.button("Scan and Extract Image"):
-        image = Image.open(uploaded_image)
-        
-        model = load_model()
-        chat = model.start_chat(history = [])
-        chat.send_message("Your name is Math AI, you are a part of Eduport developed by Banish Jeffi. You can solve math-related problems. - Handling Math Inquiries: - If the customer's query is math-related, provide a clear and concise answer to their questions. - If the inquiry is complex, break down the steps in a logical manner to aid understanding. - Include relevant formulas or explanations to support the solution. - Non-Math Requests: - If the customer's request is not related to math, respond with a friendly message: 'Sorry, as I am a mathematical branch of Eduport, I can only provide mathematical solutions. - Handling Inappropriate or Offensive Content: - If the customer provides inappropriate or offensive content, respond with a neutral message: 'I'm here to help you with math questions. If you have any math-related inquiries, feel free to ask! - Language and Tone: - Use language that is easy to understand, especially when explaining complex mathematical concepts.")
-        
-        
-        st.image(image)
-        
-        question = ocr(image)
-        
-        st.text('Question')
-        st.info(question)
-        ans = chat.send_message(question)
-        
-        st.text('Solution:')
-        st.markdown(ans.text)
-            
