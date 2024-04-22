@@ -59,14 +59,16 @@ with tab1:
         st.image(image)
         
         question = ocr(image)
-        
-        st.text('Question')
         st.info(question)
-        ans = chat.send_message(question)
-        
-        st.text('Solution:')
-        st.markdown(ans.text)
-            
+
+        if question != "sorry i cant process this image please provide me a math related images":
+            st.text("Question")
+            st.info(question)  
+            ans = chat.send_message(question)
+            st.text('Solution:')
+            st.markdown(ans.text)
+        else:
+            st.danger(question)   
             
 with tab2:
     
