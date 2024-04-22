@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_option_menu import option_menu
 from PIL import Image
 import os
 
@@ -24,24 +23,13 @@ print(working_directory)
 
 # setting up the page configuration
 st.set_page_config(
-    page_title = "Math Ai",
+    page_title = "Gemni Ai",
     page_icon = "🤖",
     layout = "centered"
 )
     
 
-with st.sidebar:
-    
-    selected = option_menu("Math AI",
-                           [
-                               "Type Q/A",
-                               "Scan Q/A",
-                           ],
-                           menu_icon = 'robot', icons = [
-                               'chat-dots-fill',
-                               'image-fill',
-                           ],
-                            default_index = 0)
+tab1, tab2, tab3 = st.tabs(["Type Q/A", "Scan Q/A"])
     
     
 def translate_role_for_streamlit(user_role):
@@ -52,9 +40,9 @@ def translate_role_for_streamlit(user_role):
     else:
         return user_role
 
-if selected == "Type Q/A":
+with tab1:
     
-    st.header('🧾 Type Q/A', divider='rainbow')
+    st.header('🖺 Type Q/A', divider='rainbow')
     
     model = load_model()
 
@@ -79,7 +67,7 @@ if selected == "Type Q/A":
         with st.chat_message('assistant'):
             st.markdown(gemini_response.text)
             
-if selected == "Scan Q/A":
+with tab2:
     
     st.title("📇 Scan Q/A")
     
