@@ -62,7 +62,11 @@ with tab1:
         st.info(question)
 
         if question in "sorry":
-            st.danger(question)   
+            st.danger(question)
+        elif question in "in the image":
+            st.danger(question)
+        elif question in "image":
+            st.danger(question)
         else:
             st.text("Question")
             st.info(question)  
