@@ -61,9 +61,9 @@ with tab1:
         question = ocr(image)
 
         if "sorry" in question:
-            st.danger(question)
+            st.error("Sorrry I couldn't able to process image please try another image", icon="🚨")
         if "image" in question:
-            st.danger("Sorrry I couldn't able to process image please try another image")
+            st.error("Sorrry I couldn't able to process image please try another image", icon="🚨")
         else:
             st.text("Question")
             st.info(question)  
